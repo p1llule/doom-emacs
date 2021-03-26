@@ -21,7 +21,9 @@
       (local-set-key (vector 'remap (lookup-key lispy-mode-map (kbd "TAB"))) #'completion-at-point)))
   :config
   (setq lispy-close-quotes-at-end-p t)
-  (add-hook 'lispy-mode-hook #'turn-off-smartparens-mode))
+  (add-hook 'lispy-mode-hook #'turn-off-smartparens-mode)
+  ;; lispy-tab relies on double-spaced sentences
+  (setq-hook! lispy-mode-hook sentence-end-double-space t))
 
 
 (use-package! lispyville
